@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Game background ────────────────────────────────────── */
+.game-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0c1a2e 100%);
+  background-attachment: fixed;
+}
+
+/* ── Card 3D flip ───────────────────────────────────────── */
+.card-container {
+  @apply relative;
+  width: clamp(72px, 13vw, 120px);
+  height: clamp(100px, 18vw, 168px);
+  perspective: 900px;
+  transition: transform 0.15s ease;
+}
+
+.card-container:hover:not(.matched) {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.card-container:active:not(.matched) {
+  transform: scale(0.97);
+}
+
+.card-inner {
+  @apply relative w-full h-full;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  @apply absolute inset-0 rounded-2xl;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back-proposal {
+  transform: rotateY(180deg);
+}
+
+/* ── Matched card reveal ────────────────────────────────── */
+.card-container.matched {
+  cursor: default;
+}
+
+.card-container.matched .card-inner {
+  transform: rotateY(180deg);
+  animation: matchPop 0.4s ease forwards;
+}
+
+.card-match-reveal {
+  animation: revealFade 0.5s ease 0.3s both;
+}
+
+@keyframes matchPop {
+  0%   { transform: rotateY(180deg) scale(1); }
+  40%  { transform: rotateY(180deg) scale(1.08); }
+  100% { transform: rotateY(180deg) scale(1); }
+}
+
+@keyframes revealFade {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Misc helpers ───────────────────────────────────────── */
+.line-clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.border-3 {
+  border-width: 3px;
+}
