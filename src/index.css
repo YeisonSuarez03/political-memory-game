@@ -11,8 +11,11 @@
 /* ── Card 3D flip ───────────────────────────────────────── */
 .card-container {
   @apply relative;
-  width: clamp(72px, 13vw, 120px);
-  height: clamp(100px, 18vw, 168px);
+  /* let grid column control width; cap card width so columns stay consistent */
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  height: clamp(180px, 30vw, 360px);
   perspective: 900px;
   transition: transform 0.15s ease;
 }
