@@ -27,7 +27,14 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run build -- --base ./
+
+      - name: Show dist files (debug)
+        run: |
+          echo "Dist contents:";
+          ls -la dist || true;
+          echo "--- dist/index.html ---";
+          sed -n '1,200p' dist/index.html || true;
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
