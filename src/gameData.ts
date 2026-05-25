@@ -15,7 +15,7 @@ export interface Category {
 export interface Candidate {
   id: number;
   name: string;
-  image: string; // path relative to /public
+  image: sring; // path relative to /public
   color: string; // accent color for candidate badge
   proposals: Record<CategoryKey, string>;
 }
@@ -64,7 +64,7 @@ export const CANDIDATES: Candidate[] = [
   {
     id: 1,
     name: 'Abelardo de la Espriella',
-    image: '/candidates/WhatsApp_Image_2026-05-24_at_7.04.46_PM.jpeg',
+    image: 'candidates/WhatsApp_Image_2026-05-24_at_7.04.46_PM.jpeg',
     color: 'bg-red-700',
     proposals: {
       salud:
@@ -82,7 +82,7 @@ export const CANDIDATES: Candidate[] = [
   {
     id: 2,
     name: 'Roy Barreras',
-    image: '/candidates/WhatsApp_Image_2026-05-24_at_7.05.34_PM.jpeg',
+    image: 'candidates/WhatsApp_Image_2026-05-24_at_7.05.34_PM.jpeg',
     color: 'bg-sky-700',
     proposals: {
       salud:
@@ -100,7 +100,7 @@ export const CANDIDATES: Candidate[] = [
   {
     id: 3,
     name: 'Santiago Botero',
-    image: '/candidates/WhatsApp_Image_2026-05-24_at_7.06.20_PM.jpeg',
+    image: 'candidates/WhatsApp_Image_2026-05-24_at_7.06.20_PM.jpeg',
     color: 'bg-orange-600',
     proposals: {
       salud:
