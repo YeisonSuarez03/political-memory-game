@@ -1,11 +1,11 @@
-import { Heart, TrendingUp, Shield, Users, Leaf, HelpCircle } from 'lucide-react';
+import { Heart, TrendingUp, Shield, BookOpen, Leaf, HelpCircle } from 'lucide-react';
 import type { Category, Candidate } from '../gameData';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Heart: <Heart className="w-10 h-10" />,
   TrendingUp: <TrendingUp className="w-10 h-10" />,
   Shield: <Shield className="w-10 h-10" />,
-  Users: <Users className="w-10 h-10" />,
+  BookOpen: <BookOpen className="w-10 h-10" />,
   Leaf: <Leaf className="w-10 h-10" />,
 };
 

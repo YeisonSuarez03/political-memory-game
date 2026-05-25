@@ -1,8 +1,17 @@
 import { useState, useCallback } from 'react';
-import { RefreshCw, Star, ChevronRight, Home } from 'lucide-react';
+import { RefreshCw, Star, ChevronRight, Home, Heart, TrendingUp, Shield, BookOpen, Leaf, HelpCircle } from 'lucide-react';
 import MemoryCard from './components/MemoryCard';
 import ScoreBoard from './components/ScoreBoard';
 import { CATEGORIES, CANDIDATES, type CategoryKey } from './gameData';
+
+// ── Icon map for category legend ────────────────────────────
+const CAT_ICON_MAP: Record<string, React.ReactNode> = {
+  Heart: <Heart className="w-4 h-4" />,
+  TrendingUp: <TrendingUp className="w-4 h-4" />,
+  Shield: <Shield className="w-4 h-4" />,
+  BookOpen: <BookOpen className="w-4 h-4" />,
+  Leaf: <Leaf className="w-4 h-4" />,
+};
 
 // ── Types ────────────────────────────────────────────────────
 interface CardData {
@@ -88,15 +97,13 @@ export default function App() {
         <div className="max-w-md w-full text-center space-y-6">
           <div className="inline-flex items-center gap-2 bg-yellow-400/20 text-yellow-300 border border-yellow-400/30 rounded-full px-4 py-1 text-sm font-medium">
             <Star className="w-4 h-4" />
-            Juego Electoral 2026
+            Pedagogía Electoral 2026
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-white leading-tight">
-            Memoria<br />
-            <span className="text-yellow-400">Política</span>
+            SIN COPIAR Y PEGAR
           </h1>
           <p className="text-white/70 text-base leading-relaxed">
-            Descubre las propuestas de los candidatos y encuentra qué candidato
-            comparte tu visión para Colombia.
+            Descubre con que candidato a la presidencia 2026 coinciden tus ideales para Colombia. 
           </p>
 
           {/* Candidate preview */}
@@ -121,9 +128,7 @@ export default function App() {
             <ChevronRight className="w-5 h-5" />
           </button>
 
-          <p className="text-white/40 text-xs">
-            Haz clic en las propuestas que más te resuenen para revelar el candidato.
-          </p>
+          <p className="text-white/40 text-xs">Haz clic en las propuestas que más feeling tengan contigo para revelar el candidato.</p>
         </div>
       </div>
     );
@@ -146,13 +151,13 @@ export default function App() {
             <Home className="w-4 h-4" />
           </button>
           <div>
-            <h1 className="text-white font-black text-lg leading-none">Memoria Política</h1>
-            <p className="text-white/50 text-xs mt-0.5">Elecciones 2026</p>
+            <h1 className="text-white font-black text-lg leading-none">SIN COPIAR Y PEGAR</h1>
+            <p className="text-white/50 text-xs mt-0.5">Tu voto. Tus razones.</p>
           </div>
         </div>
 
         <div className="flex items-center gap-4">
-          <p className="text-white/60 text-sm">Selecciona las propuestas que más te representen</p>
+          <p className="text-white/60 text-sm">¿Tu voto sobrevivirá al algoritmo?</p>
           <button
             onClick={resetGame}
             className="bg-white/10 hover:bg-white/20 text-white p-2 rounded-xl transition-all"
@@ -193,7 +198,9 @@ export default function App() {
             <div className="space-y-2">
               {CATEGORIES.map((cat) => (
                 <div key={cat.key} className="flex items-center gap-2">
-                  <div className={`w-6 h-6 rounded-lg ${cat.color} flex items-center justify-center`} />
+                  <div className={`w-6 h-6 rounded-lg ${cat.color} flex items-center justify-center text-white`}>
+                    {CAT_ICON_MAP[cat.icon] ?? <HelpCircle className="w-4 h-4" />}
+                  </div>
                   <span className="text-white/80 text-sm">{cat.label}</span>
                 </div>
               ))}
@@ -202,7 +209,7 @@ export default function App() {
 
           {/* Instructions */}
           <div className="bg-white/5 rounded-2xl p-3 border border-white/10">
-            <p className="text-white/50 text-xs leading-relaxed">Haz clic en las propuestas que más te resuenen; el marcador mostrará cuántas seleccionaste por candidato.</p>
+            <p className="text-white/50 text-xs leading-relaxed">Selecciona las propuestas que más feeling tengan contigo; el marcador mostrará cuántas seleccionaste por candidato.</p>
           </div>
         </aside>
       </div>

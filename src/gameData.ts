@@ -2,7 +2,7 @@
 // GAME DATA - Easy to edit: candidates, proposals, categories
 // ============================================================
 
-export type CategoryKey = 'salud' | 'economia' | 'seguridad' | 'social' | 'ambiental';
+export type CategoryKey = 'salud' | 'economia' | 'seguridad' | 'educacion' | 'ambiental';
 
 export interface Category {
   key: CategoryKey;
@@ -15,7 +15,7 @@ export interface Category {
 export interface Candidate {
   id: number;
   name: string;
-  image: sring; // path relative to /public
+  image: string; // path relative to /public
   color: string; // accent color for candidate badge
   proposals: Record<CategoryKey, string>;
 }
@@ -44,9 +44,9 @@ export const CATEGORIES: Category[] = [
     textColor: 'text-blue-700',
   },
   {
-    key: 'social',
-    label: 'Social',
-    icon: 'Users',
+    key: 'educacion',
+    label: 'Educación',
+    icon: 'BookOpen',
     color: 'bg-amber-500',
     textColor: 'text-amber-600',
   },
@@ -68,15 +68,15 @@ export const CANDIDATES: Candidate[] = [
     color: 'bg-red-700',
     proposals: {
       salud:
-        'Garantizaré acceso universal a la salud con un sistema robusto de atención primaria en todos los municipios del país.',
+        'Prioriza gestión eficiente, menos burocracia y acceso más rápido con participación del sector privado.',
       economia:
-        'Impulsaré la reactivación económica con incentivos a las pymes y reducción de trámites para los nuevos emprendedores.',
+        'Libre mercado, empresa privada fuerte, atraer inversión y reducir presión estatal sobre sectores productivos.',
       seguridad:
-        'Implementaré una política de seguridad ciudadana basada en inteligencia y prevención del delito en las comunidades.',
-      social:
-        'Crearé programas de vivienda digna para las familias más vulnerables y fortaleceré la educación pública de calidad.',
+        'Mano dura, fortalecimiento institucional y combate fuerte contra criminalidad.',
+      educacion:
+        'Educación con enfoque en competitividad, mérito y fortalecimiento de habilidades útiles para empleo.',
       ambiental:
-        'Promoveré la transición energética con energías renovables y protección de los ecosistemas estratégicos nacionales.',
+        'Protección ambiental sin frenar sectores económicos estratégicos.',
     },
   },
   {
@@ -86,15 +86,15 @@ export const CANDIDATES: Candidate[] = [
     color: 'bg-sky-700',
     proposals: {
       salud:
-        'Reformaré el sistema de salud para eliminar las EPS intermediarias y garantizar atención directa y oportuna a todos.',
+        'Mantener cobertura pero mejorar gestión, más prevención y fortalecer personal médico.',
       economia:
-        'Fomentaré la economía popular y el comercio justo, priorizando a los agricultores y pequeños productores locales.',
+        'Reactivar economía con infraestructura, empleo y atraer inversión sin romper programas sociales.',
       seguridad:
-        'Apostaré por la paz total y la reinserción social como alternativa real a la violencia en los territorios.',
-      social:
-        'Ampliaré las transferencias sociales y garantizaré el ingreso mínimo vital para las familias en condición de pobreza.',
+        'Seguridad tecnológica: drones, cámaras conectadas y reforma institucional.',
+      educacion:
+        'Educación conectada al empleo, formación práctica y acceso ampliado.',
       ambiental:
-        'Lideraré una agenda ambiental ambiciosa con moratoria a la minería en páramos y protección de la biodiversidad.',
+        'Equilibrio entre sostenibilidad y desarrollo económico; transición gradual.',
     },
   },
   {
@@ -104,15 +104,15 @@ export const CANDIDATES: Candidate[] = [
     color: 'bg-orange-600',
     proposals: {
       salud:
-        'Modernizaré la infraestructura hospitalaria e impulsaré la medicina preventiva con tecnología e innovación social.',
+        'Enfatiza eficiencia del sistema, reducir trámites y enfoque de administración más austera.',
       economia:
-        'Atraeré inversión extranjera responsable y desarrollaré el sector tecnológico para generar empleos de calidad.',
+        'Más libertad económica, impulso al emprendimiento y reducción de intervención estatal.',
       seguridad:
-        'Fortalaceré las fuerzas de seguridad del Estado con equipamiento moderno y formación en derechos humanos.',
-      social:
-        'Invertí en educación técnica y superior gratuita para que los jóvenes accedan a oportunidades de desarrollo real.',
+        'Estado más fuerte frente al delito y énfasis en autoridad.',
+      educacion:
+        'Formación enfocada en productividad y preparación para mercado laboral.',
       ambiental:
-        'Impulsaré la economía circular y proyectos de reforestación masiva para combatir el cambio climático en Colombia.',
+        'Desarrollo económico con menor carga regulatoria ambiental.',
     },
   },
 ];
