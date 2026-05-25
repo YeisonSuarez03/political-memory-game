@@ -16,7 +16,8 @@ export interface Candidate {
   id: number;
   name: string;
   image: string; // path relative to /public
-  color: string; // accent color for candidate badge
+  color: string; // tailwind bg class
+  hex: string;   // raw hex for inline styles
   proposals: Record<CategoryKey, string>;
 }
 
@@ -65,7 +66,8 @@ export const CANDIDATES: Candidate[] = [
     id: 1,
     name: 'Abelardo de la Espriella',
     image: 'candidates/WhatsApp_Image_2026-05-24_at_7.04.46_PM.jpeg',
-    color: 'bg-red-700',
+    color: 'bg-[#F5C800]',
+    hex: '#F5C800',
     proposals: {
       salud:
         'Prioriza gestión eficiente, menos burocracia y acceso más rápido con participación del sector privado.',
@@ -83,7 +85,8 @@ export const CANDIDATES: Candidate[] = [
     id: 2,
     name: 'Roy Barreras',
     image: 'candidates/WhatsApp_Image_2026-05-24_at_7.05.34_PM.jpeg',
-    color: 'bg-sky-700',
+    color: 'bg-[#D91E18]',
+    hex: '#D91E18',
     proposals: {
       salud:
         'Mantener cobertura pero mejorar gestión, más prevención y fortalecer personal médico.',
@@ -101,7 +104,8 @@ export const CANDIDATES: Candidate[] = [
     id: 3,
     name: 'Santiago Botero',
     image: 'candidates/WhatsApp_Image_2026-05-24_at_7.06.20_PM.jpeg',
-    color: 'bg-orange-600',
+    color: 'bg-[#1A3A8F]',
+    hex: '#1A3A8F',
     proposals: {
       salud:
         'Enfatiza eficiencia del sistema, reducir trámites y enfoque de administración más austera.',
